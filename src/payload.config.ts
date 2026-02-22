@@ -34,6 +34,7 @@ export default buildConfig({
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
+  globals: [SiteContent],
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
