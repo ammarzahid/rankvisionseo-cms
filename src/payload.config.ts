@@ -8,6 +8,8 @@ import { CloudflareContext, getCloudflareContext } from '@opennextjs/cloudflare'
 import { GetPlatformProxyOptions } from 'wrangler'
 import { r2Storage } from '@payloadcms/storage-r2'
 
+import { SiteContent } from "./globals/site-content"
+
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 
