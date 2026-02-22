@@ -87,8 +87,12 @@ export interface Config {
     defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    'site-content': SiteContent;
+  };
+  globalsSelect: {
+    'site-content': SiteContentSelect<false> | SiteContentSelect<true>;
+  };
   locale: null;
   user: User;
   jobs: {
@@ -307,6 +311,336 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-content".
+ */
+export interface SiteContent {
+  id: number;
+  data?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+    jsonLd?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+  };
+  header?: {
+    ctaLabel?: string | null;
+    navLinks?:
+      | {
+          label?: string | null;
+          href?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  hero?: {
+    badge?: string | null;
+    headingLine1?: string | null;
+    headingHighlight?: string | null;
+    headingLine2?: string | null;
+    description?: string | null;
+    primaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    secondaryCta?: {
+      label?: string | null;
+      href?: string | null;
+    };
+    stats?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  services?: {
+    eyebrow?: string | null;
+    headingLine1?: string | null;
+    headingLine2?: string | null;
+    description?: string | null;
+    items?:
+      | {
+          title?: string | null;
+          description?: string | null;
+          icon?: string | null;
+          tag?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  process?: {
+    eyebrow?: string | null;
+    headingLine1?: string | null;
+    headingLine2?: string | null;
+    steps?:
+      | {
+          number?: string | null;
+          title?: string | null;
+          description?: string | null;
+          details?:
+            | {
+                value?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  results?: {
+    eyebrow?: string | null;
+    headingLine1?: string | null;
+    headingLine2?: string | null;
+    metrics?:
+      | {
+          value?: string | null;
+          label?: string | null;
+          description?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    caseStudies?:
+      | {
+          industry?: string | null;
+          metric?: string | null;
+          timeframe?: string | null;
+          description?: string | null;
+          tags?:
+            | {
+                value?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  cta?: {
+    badge?: string | null;
+    headingLine1?: string | null;
+    headingLine2?: string | null;
+    description?: string | null;
+    checklist?:
+      | {
+          value?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    form?: {
+      nameLabel?: string | null;
+      emailLabel?: string | null;
+      websiteLabel?: string | null;
+      messageLabel?: string | null;
+      submitLabel?: string | null;
+      footnote?: string | null;
+    };
+  };
+  footer?: {
+    description?: string | null;
+    status?: string | null;
+    groups?:
+      | {
+          heading?: string | null;
+          links?:
+            | {
+                label?: string | null;
+                href?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-content_select".
+ */
+export interface SiteContentSelect<T extends boolean = true> {
+  data?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        jsonLd?: T;
+      };
+  header?:
+    | T
+    | {
+        ctaLabel?: T;
+        navLinks?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+              id?: T;
+            };
+      };
+  hero?:
+    | T
+    | {
+        badge?: T;
+        headingLine1?: T;
+        headingHighlight?: T;
+        headingLine2?: T;
+        description?: T;
+        primaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        secondaryCta?:
+          | T
+          | {
+              label?: T;
+              href?: T;
+            };
+        stats?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              id?: T;
+            };
+      };
+  services?:
+    | T
+    | {
+        eyebrow?: T;
+        headingLine1?: T;
+        headingLine2?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              icon?: T;
+              tag?: T;
+              id?: T;
+            };
+      };
+  process?:
+    | T
+    | {
+        eyebrow?: T;
+        headingLine1?: T;
+        headingLine2?: T;
+        steps?:
+          | T
+          | {
+              number?: T;
+              title?: T;
+              description?: T;
+              details?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  results?:
+    | T
+    | {
+        eyebrow?: T;
+        headingLine1?: T;
+        headingLine2?: T;
+        metrics?:
+          | T
+          | {
+              value?: T;
+              label?: T;
+              description?: T;
+              id?: T;
+            };
+        caseStudies?:
+          | T
+          | {
+              industry?: T;
+              metric?: T;
+              timeframe?: T;
+              description?: T;
+              tags?:
+                | T
+                | {
+                    value?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  cta?:
+    | T
+    | {
+        badge?: T;
+        headingLine1?: T;
+        headingLine2?: T;
+        description?: T;
+        checklist?:
+          | T
+          | {
+              value?: T;
+              id?: T;
+            };
+        form?:
+          | T
+          | {
+              nameLabel?: T;
+              emailLabel?: T;
+              websiteLabel?: T;
+              messageLabel?: T;
+              submitLabel?: T;
+              footnote?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        description?: T;
+        status?: T;
+        groups?:
+          | T
+          | {
+              heading?: T;
+              links?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
